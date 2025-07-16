@@ -1,6 +1,10 @@
+import { TrainingResult } from "@/widgets/training-result/TrainingResult";
+import { generateMetadata } from "./metadata";
+
+export { generateMetadata };
+
 import { trainingPrograms } from "@/shared/api/trainingPrograms";
 import type { TrainingProgram } from "@/shared/api/trainingPrograms";
-import { TrainingResult } from "@/widgets/training-result/TrainingResult";
 
 function getProgram(equipment: string, workoutType: string): TrainingProgram | undefined {
   return trainingPrograms.training_programs.find(

@@ -1,5 +1,7 @@
-"use client";
+import { metadata } from "./page.metadata";
 import { TrainingSelector } from "@/features/training-selector/TrainingSelector";
+
+export { metadata };
 
 export default function Home() {
   return (
