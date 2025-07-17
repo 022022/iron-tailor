@@ -1,10 +1,6 @@
-import type { TrainingProgram } from "@/shared/api/trainingPrograms";
+import type { TrainingProgramCardProps } from "./types";
 import { ExerciseCard } from "@/entities/exercise/ExerciseCard";
 import { Card } from "@/shared/ui/Card/Card";
-
-interface TrainingProgramCardProps {
-  program: TrainingProgram;
-}
 
 export function TrainingProgramCard({ program }: TrainingProgramCardProps) {
   return (

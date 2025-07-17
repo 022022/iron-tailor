@@ -1,13 +1,4 @@
-import { SelectHTMLAttributes } from "react";
-
-interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
-  options: string[];
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-  label?: string;
-  name?: string;
-  className?: string;
-}
+import type { SelectProps } from "./Select.types";
 
 export function Select({ options, value, onChange, label, name, className = "", ...props }: SelectProps) {
   return (

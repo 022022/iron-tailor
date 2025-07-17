@@ -1,15 +1,12 @@
 "use client";
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { trainingPrograms } from "@/shared/api/trainingPrograms";
 import { Button } from "@/shared/ui/Button";
 import { Select } from "@/shared/ui/Select";
+import { useTrainingOptions } from "@/features/training-selector/hooks/useTrainingOptions";
 
 export function TrainingSelector() {
-  // Получаем уникальные значения оборудования и типов тренировок из данных
-  const equipmentOptions = useMemo(() => Array.from(new Set(trainingPrograms.training_programs.map(p => p.equipment))), []);
-  const workoutTypeOptions = useMemo(() => Array.from(new Set(trainingPrograms.training_programs.map(p => p.workout_type))), []);
-
+  const { equipmentOptions, workoutTypeOptions } = useTrainingOptions();
   const [equipment, setEquipment] = useState(equipmentOptions[0] || "");
   const [workoutType, setWorkoutType] = useState(workoutTypeOptions[0] || "");
   const router = useRouter();

@@ -1,9 +1,4 @@
-import { ReactNode } from "react";
-
-interface SectionTitleProps {
-  children: ReactNode;
-  className?: string;
-}
+import type { SectionTitleProps } from "./SectionTitle.types";
 
 export function SectionTitle({ children, className = "" }: SectionTitleProps) {
   return (

@@ -1,10 +1,5 @@
-import type { Exercise } from "@/shared/api/trainingPrograms";
+import type { ExerciseCardProps } from "./types";
 import { ExerciseTitle } from "@/shared/ui/ExerciseTitle";
-
-interface ExerciseCardProps {
-  exercise: Exercise;
-  index: number;
-}
 
 export function ExerciseCard({ exercise, index }: ExerciseCardProps) {
   return (

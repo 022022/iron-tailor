@@ -1,9 +1,4 @@
-import { ReactNode } from "react";
-
-interface ExerciseTitleProps {
-  index: number;
-  children: ReactNode;
-}
+import type { ExerciseTitleProps } from "./ExerciseTitle.types";
 
 export function ExerciseTitle({ index, children }: ExerciseTitleProps) {
   return (
