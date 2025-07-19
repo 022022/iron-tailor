@@ -1,37 +1,34 @@
 "use client";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { Button } from "@/shared/ui/Button";
-import { Select } from "@/shared/ui/Select";
-import { useTrainingOptions } from "@/features/training-selector/hooks/useTrainingOptions";
+import { Box, Heading, VStack } from "@chakra-ui/react";
+import { useMemo } from "react";
+import { getEquipmentOptions } from "@/shared/lib/training-utils";
+import { useAvailableWorkoutTypes } from "./hooks/useAvailableWorkoutTypes";
+import { useTrainingSelection } from "./hooks/useTrainingSelection";
+import { EquipmentSelector } from "./ui/EquipmentSelector";
+import { WorkoutTypeSelector } from "./ui/WorkoutTypeSelector";
 
 export function TrainingSelector() {
-  const { equipmentOptions, workoutTypeOptions } = useTrainingOptions();
-  const [equipment, setEquipment] = useState(equipmentOptions[0] || "");
-  const [workoutType, setWorkoutType] = useState(workoutTypeOptions[0] || "");
-  const router = useRouter();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    router.push(`/result?equipment=${encodeURIComponent(equipment)}&workoutType=${encodeURIComponent(workoutType)}`);
-  };
+  const equipmentOptions = useMemo(() => getEquipmentOptions(), []);
+  const availableWorkoutTypes = useAvailableWorkoutTypes();
+  const { equipment, workoutType, handleEquipmentSelect, handleWorkoutTypeSelect } = useTrainingSelection();
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-md w-full max-w-md space-y-6">
-      <h1 className="text-2xl font-bold mb-4 text-center">Выбор тренировки</h1>
-      <Select
-        label="Оборудование"
-        options={equipmentOptions}
-        value={equipment}
-        onChange={e => setEquipment(e.target.value)}
-      />
-      <Select
-        label="Тип тренировки"
-        options={workoutTypeOptions}
-        value={workoutType}
-        onChange={e => setWorkoutType(e.target.value)}
-      />
-      <Button type="submit">Показать тренировку</Button>
-    </form>
+    <Box bg="white" p={8} rounded="md" shadow="md" w="full" maxW="md">
+      <VStack align="stretch" gap={6}>
+        <Heading as="h1" size="lg" textAlign="center">Выбор тренировки</Heading>
+
+        <EquipmentSelector
+          equipmentOptions={equipmentOptions}
+          selectedEquipment={equipment}
+          onEquipmentSelect={handleEquipmentSelect}
+        />
+
+        <WorkoutTypeSelector
+          workoutTypeOptions={availableWorkoutTypes}
+          selectedWorkoutType={workoutType}
+          onWorkoutTypeSelect={handleWorkoutTypeSelect}
+        />
+      </VStack>
+    </Box>
   );
 }

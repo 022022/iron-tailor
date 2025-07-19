@@ -1,10 +1,12 @@
+import { Box, VStack, Heading, Text } from "@chakra-ui/react";
+
 export default function NotFound() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-gray-50">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-md text-center">
-        <h2 className="text-xl font-bold mb-4">Тренировка не найдена</h2>
-        <p>Проверьте выбранные параметры.</p>
-      </div>
-    </main>
+    <VStack as="main" minH="100vh" justify="center" align="center" p={4} bg="gray.50">
+      <Box bg="white" p={8} rounded="md" shadow="md" w="full" maxW="md" textAlign="center">
+        <Heading as="h2" size="lg" mb={4}>Тренировка не найдена</Heading>
+        <Text>Проверьте выбранные параметры.</Text>
+      </Box>
+    </VStack>
   );
 }
