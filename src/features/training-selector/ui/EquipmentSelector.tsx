@@ -1,3 +1,5 @@
+"use client";
+
 import { SimpleGrid } from "@chakra-ui/react";
 import { EquipmentCard } from "./EquipmentCard";
 

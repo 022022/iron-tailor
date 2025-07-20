@@ -5,16 +5,37 @@ import type { ResultPageProps } from "./types";
 import { notFound } from "next/navigation";
 import { Button, VStack } from "@chakra-ui/react";
 import { useTrainingResult } from "@/widgets/training-result/hooks/useTrainingResult";
+import { use } from "react";
 
-export default function ResultPage({ searchParams }: ResultPageProps) {
-  const { equipment, workoutType, random, exclude } = searchParams;
+interface SearchParams {
+  equipment?: string;
+  workoutType?: string;
+  random?: string;
+  exclude?: string;
+  programId?: string;
+}
 
-  const equipmentArr = equipment ? equipment.split(",") : [];
+function parseSearchParams(params: SearchParams) {
+  const equipment = params.equipment ? params.equipment.split(",") : [];
+  return {
+    equipment,
+    workoutType: params.workoutType || "",
+    random: params.random || "",
+    exclude: params.exclude,
+    programId: params.programId,
+  };
+}
+
+export default function ResultPage({ searchParams }: { searchParams: SearchParams }) {
+  const params = use(searchParams) as SearchParams;
+  const { equipment, workoutType, random, exclude, programId } = parseSearchParams(params);
+
   const { program, showAnother, handleAnother, hasProgram } = useTrainingResult({
-    equipment: equipmentArr,
-    workoutType: workoutType || "",
-    random: random || "",
-    exclude
+    equipment,
+    workoutType,
+    random,
+    exclude,
+    programId
   });
 
   if (!hasProgram) {

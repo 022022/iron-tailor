@@ -1,6 +1,5 @@
 "use client";
 import { Box, Heading, VStack } from "@chakra-ui/react";
-import { useMemo } from "react";
 import { getEquipmentOptions } from "@/shared/lib/training-utils";
 import { useAvailableWorkoutTypes } from "./hooks/useAvailableWorkoutTypes";
 import { useTrainingSelection } from "./hooks/useTrainingSelection";
@@ -8,7 +7,7 @@ import { EquipmentSelector } from "./ui/EquipmentSelector";
 import { WorkoutTypeSelector } from "./ui/WorkoutTypeSelector";
 
 export function TrainingSelector() {
-  const equipmentOptions = useMemo(() => getEquipmentOptions(), []);
+  const equipmentOptions = getEquipmentOptions();
   const availableWorkoutTypes = useAvailableWorkoutTypes();
   const { equipment, workoutType, handleEquipmentSelect, handleWorkoutTypeSelect } = useTrainingSelection();
 
@@ -25,7 +24,7 @@ export function TrainingSelector() {
 
         <WorkoutTypeSelector
           workoutTypeOptions={availableWorkoutTypes}
-          selectedWorkoutType={workoutType}
+          selectedType={workoutType}
           onWorkoutTypeSelect={handleWorkoutTypeSelect}
         />
       </VStack>

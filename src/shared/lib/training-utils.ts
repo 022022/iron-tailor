@@ -1,12 +1,16 @@
 import { trainingPrograms } from "@/shared/api/trainingPrograms";
 import type { TrainingProgram } from "@/shared/api/trainingPrograms";
 
-export function getMatchingPrograms(equipment: string[], workoutType: string): TrainingProgram[] {
+export function filterProgramsByEquipmentAndType(equipment: string[], workoutType: string): TrainingProgram[] {
   return trainingPrograms.training_programs.filter(
     p => p.workout_type === workoutType &&
       equipment.length === p.equipment.length &&
       equipment.every(eq => p.equipment.includes(eq))
   );
+}
+
+export function getMatchingPrograms(equipment: string[], workoutType: string): TrainingProgram[] {
+  return filterProgramsByEquipmentAndType(equipment, workoutType);
 }
 
 export function getEquipmentOptions(): string[] {
@@ -21,12 +25,12 @@ export function getWorkoutTypeOptions(): string[] {
   return Array.from(set);
 }
 
-export function getRandomProgram(programs: TrainingProgram[], excludeName?: string): TrainingProgram | undefined {
+export function getRandomProgram(programs: TrainingProgram[], excludeId?: string): TrainingProgram | undefined {
   if (programs.length === 0) return undefined;
 
   let filtered = programs;
-  if (excludeName && programs.length > 1) {
-    filtered = programs.filter(p => p.exercises[0].name !== excludeName);
+  if (excludeId && programs.length > 1) {
+    filtered = programs.filter(p => p.id !== excludeId);
   }
 
   // Если после фильтрации ничего не осталось, возвращаем случайную программу из исходного списка

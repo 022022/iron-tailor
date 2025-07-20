@@ -1,8 +1,8 @@
 export interface ResultPageProps {
-  searchParams: {
+  searchParams: Promise<{
     equipment?: string;
     workoutType?: string;
     random?: string;
     exclude?: string;
-  };
+  }>;
 }

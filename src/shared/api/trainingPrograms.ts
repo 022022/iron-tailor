@@ -7,6 +7,7 @@ export interface Exercise {
 }
 
 export interface TrainingProgram {
+  id: string;
   equipment: string[];
   workout_type: string;
   exercises: Exercise[];
@@ -17,8 +18,9 @@ export interface TrainingProgramsData {
 }
 
 export const trainingPrograms: TrainingProgramsData = {
-    "training_programs": [
+  training_programs: [
       {
+        "id": "0",
         "equipment": ["Гантели"],
         "workout_type": "Для рук",
         "exercises": [
@@ -60,13 +62,49 @@ export const trainingPrograms: TrainingProgramsData = {
         ]
       },
       {
+        "id": "1",
         "equipment": ["Гантели"],
         "workout_type": "Для рук",
-        "exercises": [
-
+        "exercises":[
+          {
+            "name": "Концентрированные сгибания",
+            "muscles": "бицепс",
+            "sets": 3,
+            "reps": 12,
+            "description": "Сидя, локоть упирается во внутреннюю поверхность бедра. Медленно сгибайте руку с гантелью, концентрируясь на работе бицепса."
+          },
+          {
+            "name": "Жим Арнольда",
+            "muscles": "плечи",
+            "sets": 3,
+            "reps": 10,
+            "description": "Сидя, гантели перед лицом ладонями к себе. При жиме разворачивайте кисти наружу. Локти не выпрямляйте полностью."
+          },
+          {
+            "name": "Разгибания рук лежа",
+            "muscles": "трицепс",
+            "sets": 3,
+            "reps": 12,
+            "description": "Лежа на скамье, гантели над головой. Сгибайте руки в локтях, опуская гантели ко лбу. Локти неподвижны."
+          },
+          {
+            "name": "Сгибания рук на наклонной скамье",
+            "muscles": "бицепс",
+            "sets": 3,
+            "reps": 10,
+            "description": "Лежа на скамье под углом 45°. Руки с гантелями свободно опущены. Сгибайте руки, не отрывая локти от скамьи."
+          },
+          {
+            "name": "Подъемы перед собой",
+            "muscles": "передние дельты",
+            "sets": 3,
+            "reps": 12,
+            "description": "Стоя, поднимайте гантели перед собой до уровня глаз. Руки слегка согнуты в локтях. Не используйте инерцию."
+          }
         ]
       },
       {
+        "id": "2",
         "equipment": ["Штанга"],
         "workout_type": "Для ног",
         "exercises": [
@@ -108,6 +146,7 @@ export const trainingPrograms: TrainingProgramsData = {
         ]
       },
       {
+        "id": "3",
         "equipment": ["Турник и брусья"],
         "workout_type": "Для кора",
         "exercises": [
@@ -149,6 +188,7 @@ export const trainingPrograms: TrainingProgramsData = {
         ]
       },
       {
+        "id": "4",
         "equipment": ["Фитнес-резинки"],
         "workout_type": "Full-body",
         "exercises": [
@@ -190,6 +230,7 @@ export const trainingPrograms: TrainingProgramsData = {
         ]
       },
       {
+        "id": "5",
         "equipment": ["Гантели", "Фитнес-резинки"],
         "workout_type": "Для ног",
         "exercises": [
@@ -231,6 +272,7 @@ export const trainingPrograms: TrainingProgramsData = {
         ]
       },
       {
+        "id": "6",
         "equipment": ["Штанга", "Фитнес-резинки"],
         "workout_type": "Для рук",
         "exercises": [
@@ -272,6 +314,7 @@ export const trainingPrograms: TrainingProgramsData = {
         ]
       },
       {
+        "id": "7",
         "equipment": ["Турник и брусья", "Фитнес-резинки"],
         "workout_type": "Для кора",
         "exercises": [
@@ -313,6 +356,7 @@ export const trainingPrograms: TrainingProgramsData = {
         ]
       },
       {
+        "id": "8",
         "equipment": ["Гантели", "Штанга"],
         "workout_type": "Full-body",
         "exercises": [
@@ -354,6 +398,7 @@ export const trainingPrograms: TrainingProgramsData = {
         ]
       },
       {
+        "id": "9",
         "equipment": ["Фитнес-резинки"],
         "workout_type": "Для рук",
         "exercises": [
@@ -395,6 +440,7 @@ export const trainingPrograms: TrainingProgramsData = {
         ]
       },
       {
+        "id": "10",
         "equipment": ["Турник и брусья"],
         "workout_type": "Для ног",
         "exercises": [
@@ -436,6 +482,7 @@ export const trainingPrograms: TrainingProgramsData = {
         ]
       },
       {
+        "id": "11",
         "equipment": ["Гантели"],
         "workout_type": "Для кора",
         "exercises": [
@@ -477,6 +524,7 @@ export const trainingPrograms: TrainingProgramsData = {
         ]
       },
       {
+        "id": "12",
         "equipment": ["Штанга"],
         "workout_type": "Full-body",
         "exercises": [
@@ -518,6 +566,7 @@ export const trainingPrograms: TrainingProgramsData = {
         ]
       },
       {
+        "id": "13",
         "equipment": ["Гантели", "Турник и брусья"],
         "workout_type": "Для рук",
         "exercises": [
@@ -559,6 +608,7 @@ export const trainingPrograms: TrainingProgramsData = {
         ]
       },
       {
+        "id": "14",
         "equipment": ["Штанга", "Турник и брусья"],
         "workout_type": "Для ног",
         "exercises": [
@@ -600,6 +650,7 @@ export const trainingPrograms: TrainingProgramsData = {
         ]
       },
       {
+        "id": "15",
         "equipment": ["Фитнес-резинки", "Гантели"],
         "workout_type": "Для кора",
         "exercises": [
@@ -641,6 +692,7 @@ export const trainingPrograms: TrainingProgramsData = {
         ]
       },
       {
+        "id": "16",
         "equipment": ["Турник и брусья", "Штанга"],
         "workout_type": "Full-body",
         "exercises": [
@@ -682,6 +734,7 @@ export const trainingPrograms: TrainingProgramsData = {
         ]
       },
       {
+        "id": "17",
         "equipment": ["Фитнес-резинки"],
         "workout_type": "Для ног",
         "exercises": [
@@ -723,6 +776,7 @@ export const trainingPrograms: TrainingProgramsData = {
         ]
       },
       {
+        "id": "18",
         "equipment": ["Гантели"],
         "workout_type": "Full-body",
         "exercises": [
@@ -764,6 +818,7 @@ export const trainingPrograms: TrainingProgramsData = {
         ]
       },
       {
+        "id": "19",
         "equipment": ["Штанга", "Гантели"],
         "workout_type": "Для кора",
         "exercises": [
@@ -805,6 +860,7 @@ export const trainingPrograms: TrainingProgramsData = {
         ]
       },
       {
+        "id": "20",
         "equipment": ["Турник и брусья", "Фитнес-резинки"],
         "workout_type": "Для рук",
         "exercises": [
@@ -846,6 +902,7 @@ export const trainingPrograms: TrainingProgramsData = {
         ]
       },
       {
+        "id": "21",
         "equipment": ["Гантели", "Штанга", "Фитнес-резинки"],
         "workout_type": "Full-body",
         "exercises": [
@@ -886,5 +943,8 @@ export const trainingPrograms: TrainingProgramsData = {
           }
         ]
       }
-    ]
-  }
+    ].map((program, idx) => ({
+      ...program,
+      id: idx.toString(),
+    })),
+  };

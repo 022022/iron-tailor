@@ -1,3 +1,5 @@
+"use client";
+
 import { Box, VStack } from "@chakra-ui/react";
 import type { TrainingProgram } from "@/shared/api/trainingPrograms";
 import { TrainingHeader } from "./ui/TrainingHeader";

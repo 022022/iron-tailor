@@ -1,3 +1,5 @@
+"use client";
+
 import { VStack } from "@chakra-ui/react";
 import { ExerciseCard } from "./ExerciseCard";
 import type { TrainingProgram } from "@/shared/api/trainingPrograms";

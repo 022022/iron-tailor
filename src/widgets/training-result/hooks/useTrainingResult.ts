@@ -1,18 +1,18 @@
 import { useRouter } from "next/navigation";
 import { useState, useEffect, useMemo, useLayoutEffect } from "react";
 import { getMatchingPrograms, getRandomProgram } from "@/shared/lib/training-utils";
-import type { TrainingProgram } from "@/shared/api/trainingPrograms";
+import { trainingPrograms, TrainingProgram } from "@/shared/api/trainingPrograms";
 
 interface UseTrainingResultProps {
   equipment: string[];
   workoutType: string;
-  random: string;
+  random?: string;
   exclude?: string;
+  programId?: string;
 }
 
-export function useTrainingResult({ equipment, workoutType, random, exclude }: UseTrainingResultProps) {
+export function useTrainingResult({ equipment, workoutType, random, exclude, programId }: UseTrainingResultProps) {
   const router = useRouter();
-  const [randomProgram, setRandomProgram] = useState<TrainingProgram | undefined>(undefined);
 
   const programs = useMemo(() => {
     return equipment.length && workoutType
@@ -21,43 +21,62 @@ export function useTrainingResult({ equipment, workoutType, random, exclude }: U
   }, [equipment, workoutType]);
 
   const [isClient, setIsClient] = useState(false);
-
   useLayoutEffect(() => {
     setIsClient(true);
   }, []);
 
-  let program: TrainingProgram | undefined = programs[0];
-
-  useEffect(() => {
-    if (random === "1" && programs.length > 0) {
-      setRandomProgram(getRandomProgram(programs, exclude));
-    } else {
-      setRandomProgram(undefined);
+  // Если есть programId — ищем по нему
+  const resultProgram = useMemo(() => {
+    if (programId) {
+      return trainingPrograms.training_programs.find(p => p.id === programId);
     }
-  }, [programs, random, exclude]);
+    // Старая логика поиска
+    const programs = trainingPrograms.training_programs.filter(
+      p => p.workout_type === workoutType &&
+        equipment.length === p.equipment.length &&
+        equipment.every(eq => p.equipment.includes(eq))
+    );
+    if (exclude) {
+      return programs.find(p => p.id !== exclude) || programs[0];
+    }
+    return programs[0];
+  }, [equipment, workoutType, exclude, programId]);
 
-  if (random === "1" && programs.length > 0 && isClient) {
-    program = randomProgram || programs[0];
-  }
-
-  const showAnother = programs.length > 1 && !!program && isClient;
+  const showAnother = programs.length > 1 && !!resultProgram && isClient;
 
   const handleAnother = () => {
-    if (!program) return;
+    if (!resultProgram) return;
+
+    // Получаем все подходящие программы
+    const matchingPrograms = trainingPrograms.training_programs.filter(
+      (p: TrainingProgram) => p.workout_type === workoutType &&
+        equipment.length === p.equipment.length &&
+        equipment.every(eq => p.equipment.includes(eq)) &&
+        p.id !== resultProgram.id
+    );
+
+    // Если нет других программ, остаёмся на текущей
+    if (matchingPrograms.length === 0) return;
+
+    // Выбираем случайную из оставшихся
+    const randomIndex = Math.floor(Math.random() * matchingPrograms.length);
+    const randomProgram = matchingPrograms[randomIndex];
 
     const params = new URLSearchParams({
       equipment: equipment.join(","),
       workoutType: workoutType || "",
       random: "1",
-      exclude: program.exercises[0].name
+      exclude: resultProgram.id
     });
+    // Добавляем id новой программы в параметры (например, programId)
+    params.set("programId", randomProgram.id);
     router.push(`/result?${params.toString()}`);
   };
 
   return {
-    program,
+    program: resultProgram,
     showAnother,
     handleAnother,
-    hasProgram: !!program
+    hasProgram: !!resultProgram
   };
 }

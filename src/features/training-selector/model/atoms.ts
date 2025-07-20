@@ -1,8 +1,14 @@
-import { atom } from "jotai";
-import { trainingPrograms } from "@/shared/api/trainingPrograms";
+import { atom, PrimitiveAtom } from "jotai";
 
-const equipmentDefault: string[] = trainingPrograms.training_programs[0]?.equipment || [];
-const workoutTypeDefault = trainingPrograms.training_programs[0]?.workout_type || "";
+const equipmentDefault: string[] = [];
+const workoutTypeDefault = ""; // По умолчанию не выбран ни один тип тренировки
 
 export const equipmentAtom = atom<string[]>(equipmentDefault);
 export const workoutTypeAtom = atom<string>(workoutTypeDefault);
+
+export const resetTrainingSelectionAtoms = (
+  set: (atom: PrimitiveAtom<string[]> | PrimitiveAtom<string>, value: string[] | string) => void
+) => {
+  set(equipmentAtom, equipmentDefault);
+  set(workoutTypeAtom, workoutTypeDefault);
+};

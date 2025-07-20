@@ -1,3 +1,5 @@
+"use client";
+
 import { Heading, HStack, Badge } from "@chakra-ui/react";
 import type { TrainingProgram } from "@/shared/api/trainingPrograms";
 

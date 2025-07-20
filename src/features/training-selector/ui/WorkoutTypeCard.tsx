@@ -1,3 +1,5 @@
+"use client";
+
 import { Box } from "@chakra-ui/react";
 
 interface WorkoutTypeCardProps {
@@ -10,8 +12,8 @@ interface WorkoutTypeCardProps {
 export function WorkoutTypeCard({ label, isSelected, disabled, onClick }: WorkoutTypeCardProps) {
   return (
     <Box
-      borderWidth={isSelected ? 2 : 1}
-      borderColor={isSelected ? "blue.500" : "gray.200"}
+      borderWidth={1}
+      borderColor="gray.200"
       cursor={disabled ? "not-allowed" : "pointer"}
       opacity={disabled ? 0.5 : 1}
       onClick={onClick}
