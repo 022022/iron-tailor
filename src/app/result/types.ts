@@ -3,6 +3,6 @@ export interface ResultPageProps {
     equipment?: string;
     workoutType?: string;
     random?: string;
-    exclude?: string;
+    currentId?: string;
   }>;
 }

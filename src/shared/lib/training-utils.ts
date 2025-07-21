@@ -21,12 +21,12 @@ export function getWorkoutTypeOptions(): string[] {
   return Array.from(set);
 }
 
-export function getRandomProgram(programs: TrainingProgram[], excludeId?: string): TrainingProgram | undefined {
+export function getRandomProgram(programs: TrainingProgram[], currentId?: string): TrainingProgram | undefined {
   if (programs.length === 0) return undefined;
 
   let filtered = programs;
-  if (excludeId && programs.length > 1) {
-    filtered = programs.filter(p => p.id !== excludeId);
+  if (currentId && programs.length > 1) {
+    filtered = programs.filter(p => p.id !== currentId);
   }
 
   // Если после фильтрации ничего не осталось, возвращаем случайную программу из исходного списка
@@ -46,15 +46,31 @@ export function getRandomProgram(programs: TrainingProgram[], excludeId?: string
 export function getResultProgram(
   equipment: string[],
   workoutType: string,
-  exclude?: string,
+  currentId?: string,
   programId?: string
 ): TrainingProgram | undefined {
   if (programId) {
     return trainingPrograms.training_programs.find(p => p.id === programId);
   }
   const programs = getMatchingPrograms(equipment, workoutType);
-  if (exclude) {
-    return programs.find(p => p.id !== exclude) || programs[0];
+  if (currentId) {
+    return programs.find(p => p.id !== currentId) || programs[0];
   }
   return programs[0];
+}
+
+export function getNextProgramId(
+  programs: TrainingProgram[],
+  currentId: string,
+  viewedIds: string[]
+): string {
+  if (programs.length === 0) return '';
+
+  const allViewed = programs.every(p => viewedIds.includes(p.id));
+  const filtered = allViewed ? programs : programs.filter(p => !viewedIds.includes(p.id));
+
+  const currentIndex = filtered.findIndex(p => p.id === currentId);
+
+  const nextIndex = (currentIndex + 1) % filtered.length;
+  return filtered[nextIndex].id;
 }

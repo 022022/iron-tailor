@@ -6,8 +6,8 @@ import { getMatchingPrograms, getResultProgram } from "@/shared/lib/training-uti
 import { ShowAnotherButton } from "@/widgets/training-result/ShowAnotherButton";
 
 export default function ResultPage({ searchParams }: { searchParams: SearchParams }) {
-  const { equipment, workoutType, exclude, programId } = parseSearchParams(searchParams);
-  const program = getResultProgram(equipment, workoutType, exclude, programId);
+  const { equipment, workoutType, currentId, programId } = parseSearchParams(searchParams);
+  const program = getResultProgram(equipment, workoutType, currentId, programId);
   const matchingPrograms = getMatchingPrograms(equipment, workoutType);
   const showAnother = matchingPrograms.length > 1 && !!program;
 
@@ -21,7 +21,7 @@ export default function ResultPage({ searchParams }: { searchParams: SearchParam
         <ShowAnotherButton
           equipment={equipment}
           workoutType={workoutType}
-          exclude={program.id}
+          currentId={program.id}
         />
       )}
       <TrainingResult program={program} />

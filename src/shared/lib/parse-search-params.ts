@@ -2,7 +2,7 @@ export interface SearchParams {
   equipment?: string;
   workoutType?: string;
   random?: string;
-  exclude?: string;
+  currentId?: string;
   programId?: string;
 }
 
@@ -12,7 +12,7 @@ export function parseSearchParams(params: SearchParams) {
     equipment,
     workoutType: params.workoutType || "",
     random: params.random || "",
-    exclude: params.exclude,
+    currentId: params.currentId,
     programId: params.programId,
   };
 }
