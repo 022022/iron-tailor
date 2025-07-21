@@ -1,16 +1,12 @@
 import { trainingPrograms } from "@/shared/api/trainingPrograms";
 import type { TrainingProgram } from "@/shared/api/trainingPrograms";
 
-export function filterProgramsByEquipmentAndType(equipment: string[], workoutType: string): TrainingProgram[] {
+export function getMatchingPrograms(equipment: string[], workoutType: string): TrainingProgram[] {
   return trainingPrograms.training_programs.filter(
     p => p.workout_type === workoutType &&
       equipment.length === p.equipment.length &&
       equipment.every(eq => p.equipment.includes(eq))
   );
-}
-
-export function getMatchingPrograms(equipment: string[], workoutType: string): TrainingProgram[] {
-  return filterProgramsByEquipmentAndType(equipment, workoutType);
 }
 
 export function getEquipmentOptions(): string[] {
@@ -35,16 +31,30 @@ export function getRandomProgram(programs: TrainingProgram[], excludeId?: string
 
   // Если после фильтрации ничего не осталось, возвращаем случайную программу из исходного списка
   if (filtered.length === 0) {
-    // На сервере всегда возвращаем первый элемент, на клиенте - случайный
     const index = typeof window !== 'undefined'
       ? Math.floor(Math.random() * programs.length)
       : 0;
     return programs[index];
   }
 
-  // На сервере всегда возвращаем первый элемент, на клиенте - случайный
   const index = typeof window !== 'undefined'
     ? Math.floor(Math.random() * filtered.length)
     : 0;
   return filtered[index];
+}
+
+export function getResultProgram(
+  equipment: string[],
+  workoutType: string,
+  exclude?: string,
+  programId?: string
+): TrainingProgram | undefined {
+  if (programId) {
+    return trainingPrograms.training_programs.find(p => p.id === programId);
+  }
+  const programs = getMatchingPrograms(equipment, workoutType);
+  if (exclude) {
+    return programs.find(p => p.id !== exclude) || programs[0];
+  }
+  return programs[0];
 }

@@ -1,5 +1,3 @@
-"use client";
-
 import { Box, Text, HStack, Badge } from "@chakra-ui/react";
 import type { Exercise } from "@/shared/api/trainingPrograms";
 

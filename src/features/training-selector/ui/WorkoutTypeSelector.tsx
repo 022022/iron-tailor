@@ -1,5 +1,3 @@
-"use client";
-
 import { SimpleGrid } from "@chakra-ui/react";
 import { WorkoutTypeCard } from "./WorkoutTypeCard";
 

@@ -1,7 +1,7 @@
 import { atom, PrimitiveAtom } from "jotai";
 
 const equipmentDefault: string[] = [];
-const workoutTypeDefault = ""; // По умолчанию не выбран ни один тип тренировки
+const workoutTypeDefault = "";
 
 export const equipmentAtom = atom<string[]>(equipmentDefault);
 export const workoutTypeAtom = atom<string>(workoutTypeDefault);
