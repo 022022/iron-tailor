@@ -9,7 +9,7 @@ interface EquipmentSelectorProps {
 
 export function EquipmentSelector({ equipmentOptions, selectedEquipment, onEquipmentSelect }: EquipmentSelectorProps) {
   return (
-    <SimpleGrid columns={4} gap={4} mb={4}>
+    <SimpleGrid columns={2} columnGap="2" rowGap="2" width="100%" >
       {equipmentOptions.map(equipment => (
         <EquipmentCard
           key={equipment}

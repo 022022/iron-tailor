@@ -29,7 +29,6 @@ export function getRandomProgram(programs: TrainingProgram[], currentId?: string
     filtered = programs.filter(p => p.id !== currentId);
   }
 
-  // Если после фильтрации ничего не осталось, возвращаем случайную программу из исходного списка
   if (filtered.length === 0) {
     const index = typeof window !== 'undefined'
       ? Math.floor(Math.random() * programs.length)

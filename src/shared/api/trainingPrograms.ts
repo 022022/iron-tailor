@@ -190,7 +190,7 @@ export const trainingPrograms: TrainingProgramsData = {
       {
         "id": "4",
         "equipment": ["Фитнес-резинки"],
-        "workout_type": "Full-body",
+        "workout_type": "На все тело",
         "exercises": [
           {
             "name": "Приседания с резинкой",
@@ -358,7 +358,7 @@ export const trainingPrograms: TrainingProgramsData = {
       {
         "id": "8",
         "equipment": ["Гантели", "Штанга"],
-        "workout_type": "Full-body",
+        "workout_type": "На все тело",
         "exercises": [
           {
             "name": "Фронтальные приседания",
@@ -526,7 +526,7 @@ export const trainingPrograms: TrainingProgramsData = {
       {
         "id": "12",
         "equipment": ["Штанга"],
-        "workout_type": "Full-body",
+        "workout_type": "На все тело",
         "exercises": [
           {
             "name": "Становая тяга",
@@ -694,7 +694,7 @@ export const trainingPrograms: TrainingProgramsData = {
       {
         "id": "16",
         "equipment": ["Турник и брусья", "Штанга"],
-        "workout_type": "Full-body",
+        "workout_type": "На все тело",
         "exercises": [
           {
             "name": "Подтягивания",
@@ -778,7 +778,7 @@ export const trainingPrograms: TrainingProgramsData = {
       {
         "id": "18",
         "equipment": ["Гантели"],
-        "workout_type": "Full-body",
+        "workout_type": "На все тело",
         "exercises": [
           {
             "name": "Приседания с гантелями",
@@ -904,7 +904,7 @@ export const trainingPrograms: TrainingProgramsData = {
       {
         "id": "21",
         "equipment": ["Гантели", "Штанга", "Фитнес-резинки"],
-        "workout_type": "Full-body",
+        "workout_type": "На все тело",
         "exercises": [
           {
             "name": "Приседания с гантелями",

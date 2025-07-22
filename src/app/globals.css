@@ -2,5 +2,11 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  color: var(--chakra-colors-purple-950);
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

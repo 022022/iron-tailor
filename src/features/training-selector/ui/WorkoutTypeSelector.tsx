@@ -15,7 +15,7 @@ interface WorkoutTypeSelectorProps {
 
 export function WorkoutTypeSelector({ workoutTypeOptions, selectedType, onWorkoutTypeSelect }: WorkoutTypeSelectorProps) {
   return (
-    <SimpleGrid columns={4} gap={4}>
+    <SimpleGrid columns={2} columnGap="2" rowGap="2" width="100%">
       {workoutTypeOptions.map(option => (
         <WorkoutTypeCard
           key={option.value}

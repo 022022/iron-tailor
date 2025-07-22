@@ -9,17 +9,21 @@ interface EquipmentCardProps {
 export function EquipmentCard({ equipment, isSelected, onClick }: EquipmentCardProps) {
   return (
     <Box
-      borderWidth={isSelected ? 2 : 1}
-      borderColor={isSelected ? "blue.500" : "gray.200"}
+      borderWidth={2}
+      borderColor={isSelected ? "purple.500" : "purple.100"}
       cursor="pointer"
       onClick={onClick}
-      bg={isSelected ? "blue.50" : "white"}
-      _hover={{ boxShadow: "md" }}
+      bg={isSelected ? "purple.500" : "white"}
+      _hover={isSelected ? {  backgroundColor: "purple.400" } : { backgroundColor: "purple.100" }}
       rounded="md"
       p={4}
-      textAlign="center"
-      fontWeight={isSelected ? "bold" : "normal"}
+      display='grid'
+      placeItems='center'
+      textAlign='center'
+      fontSize="md"
       transition="all 0.2s"
+      color={isSelected ? "white" : "purple.950"}
+      lineHeight='1.2'
     >
       {equipment}
     </Box>

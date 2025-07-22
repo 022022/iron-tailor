@@ -1,35 +1,40 @@
-import { Box, Text, HStack, Badge } from "@chakra-ui/react";
-import type { Exercise } from "@/shared/api/trainingPrograms";
+import { Box, Text, HStack, Badge, Heading, VStack } from '@chakra-ui/react';
+import type { Exercise } from '@/shared/api/trainingPrograms';
 
 interface ExerciseCardProps {
-  exercise: Exercise;
-  index: number;
+	exercise: Exercise;
+	index: number;
 }
 
 export function ExerciseCard({ exercise, index }: ExerciseCardProps) {
-  return (
-    <Box
-      p={4}
-      borderWidth={1}
-      borderRadius="md"
-      mb={2}
-      _hover={{ boxShadow: "md" }}
-    >
-      <HStack justify="space-between" mb={1} gap={2}>
-        <Text fontWeight="bold" fontSize="lg">
-          {index + 1}. {exercise.name}
-        </Text>
-        <Badge colorScheme="purple" fontSize="sm">
-          {exercise.muscles}
-        </Badge>
-      </HStack>
-      <HStack gap={4} mb={1}>
-        <Badge colorScheme="green">Подходы: {exercise.sets} </Badge>
-        <Badge colorScheme="orange">Повторы: {exercise.reps} </Badge>
-      </HStack>
-      <Text color="gray.700" fontSize="md">
-        {exercise.description}
-      </Text>
-    </Box>
-  );
+	return (
+		<VStack
+			w='full'
+			gap={4}
+			align='start'
+			borderBottom='1px solid'
+			borderColor='gray.300'
+			pb={4}
+		>
+			<Heading as='h3' size='md' color='orange.500' fontWeight='normal'>
+				{index + 1}. {exercise.name}
+			</Heading>
+
+			<Badge fontSize='sm' pb={1} w='fit-content'>
+				{exercise.muscles}
+			</Badge>
+			<Text color='purple.50' fontSize='md'>
+				{exercise.description}
+			</Text>
+
+			<HStack gap={4} mb={1}>
+				<Text color='purple.500' fontSize='md'>
+					Подходы: {exercise.sets}
+				</Text>
+				<Text color='purple.500' fontSize='md'>
+					Повторы: {exercise.reps}
+				</Text>
+			</HStack>
+		</VStack>
+	);
 }

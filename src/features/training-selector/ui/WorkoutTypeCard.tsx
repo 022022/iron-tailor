@@ -7,20 +7,19 @@ interface WorkoutTypeCardProps {
   onClick: () => void;
 }
 
-export function WorkoutTypeCard({ label, isSelected, disabled, onClick }: WorkoutTypeCardProps) {
+export function WorkoutTypeCard({ label, disabled, onClick }: WorkoutTypeCardProps) {
   return (
     <Box
-      borderWidth={1}
-      borderColor="gray.200"
       cursor={disabled ? "not-allowed" : "pointer"}
-      opacity={disabled ? 0.5 : 1}
+      bg={disabled ? "gray.300" : "white"}
+      borderWidth={2}
       onClick={onClick}
-      bg={isSelected ? "blue.50" : "white"}
-      _hover={disabled ? {} : { boxShadow: "md" }}
+      _hover={disabled ? {} : {backgroundColor: "orange.500", color: "white"}}
+      borderColor={disabled ? "gray.300" : "orange.500"}
       rounded="md"
       p={4}
       textAlign="center"
-      fontWeight={isSelected ? "bold" : "normal"}
+      fontSize="md"
       transition="all 0.2s"
     >
       {label}

@@ -4,13 +4,14 @@ import {
 	equipmentAtom,
 	workoutTypeAtom,
 } from '@/features/training-selector/model/atoms';
+import { useCallback } from 'react';
 
 export function useTrainingSelection() {
 	const [equipment, setEquipment] = useAtom(equipmentAtom);
 	const [workoutType, setWorkoutType] = useAtom(workoutTypeAtom);
 	const router = useRouter();
 
-	const handleEquipmentSelect = (value: string) => {
+	const handleEquipmentSelect = useCallback((value: string) => {
 		let newEquipment: string[];
 
 		if (equipment.includes(value)) {
@@ -21,19 +22,20 @@ export function useTrainingSelection() {
 
 		setEquipment(newEquipment);
 
-		// Если оборудование снято, сбрасываем тип тренировки
 		if (newEquipment.length === 0) {
 			setWorkoutType('');
 		}
-	};
+	}, [equipment, setEquipment, setWorkoutType]);
 
-	const handleWorkoutTypeSelect = (value: string, disabled: boolean) => {
-		if (disabled || equipment.length === 0) return;
+	const handleWorkoutTypeSelect = useCallback((value: string, disabled: boolean) => {
+		if (disabled || equipment.length === 0) {
+			return;
+		}
 		const url = `/result?equipment=${encodeURIComponent(
 			equipment.join(',')
 		)}&workoutType=${encodeURIComponent(value)}&random=1`;
 		router.push(url);
-	};
+	}, [equipment, router]);
 
 	return {
 		equipment,
