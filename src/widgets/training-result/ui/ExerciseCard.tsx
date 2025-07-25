@@ -12,15 +12,13 @@ export function ExerciseCard({ exercise, index }: ExerciseCardProps) {
 			w='full'
 			gap={4}
 			align='start'
-			borderBottom='1px solid'
-			borderColor='gray.300'
-			pb={4}
+      mb={2}
 		>
-			<Heading as='h3' size='md' color='orange.500' fontWeight='normal'>
+			<Heading as='h3' size='lg' color='orange.500' fontWeight='normal'>
 				{index + 1}. {exercise.name}
 			</Heading>
 
-			<Badge fontSize='sm' pb={1} w='fit-content'>
+			<Badge fontSize='sm' w='fit-content' >
 				{exercise.muscles}
 			</Badge>
 			<Text color='brand.purple.50' fontSize='md'>

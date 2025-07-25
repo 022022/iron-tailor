@@ -1,5 +1,5 @@
 'use client';
-import { Box, Heading, Icon, Text, VStack } from '@chakra-ui/react';
+import { Heading, Icon, Text, VStack } from '@chakra-ui/react';
 import { getEquipmentOptions } from '@/shared/lib/training-utils';
 import { useAvailableWorkoutTypes } from './hooks/useAvailableWorkoutTypes';
 import { useTrainingSelection } from './hooks/useTrainingSelection';
@@ -19,7 +19,6 @@ export function TrainingSelector() {
 
 	return (
 		<VStack align='center' gap={8} width="100%" maxW="md">
-
 			<VStack align='center' gap={2}>
         <Image src='/logo.svg' alt='' width={24} height={24} />
 				<Heading as='h1' size='xl' color='brand.purple.50' fontWeight='normal'>

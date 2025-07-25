@@ -8,17 +8,16 @@ interface TrainingHeaderProps {
 export function TrainingHeader({ program }: TrainingHeaderProps) {
 	return (
 		<>
-			<HStack justify='center' mb={3} gap={2} flexWrap='wrap'>
+			<HStack justify='center' gap={2} flexWrap='wrap'>
       {program.equipment.map((eq) => (
 					<Badge
 						key={eq}
 						variant='solid'
 						backgroundColor='brand.purple.500'
-						fontSize='sm'
-            px={3}
-            pt={1}
-            pb={2}
+						fontSize='md'
+            p={1}
 						borderRadius='md'
+            fontWeight='medium'
 					>
 						{eq}
 					</Badge>
@@ -26,11 +25,10 @@ export function TrainingHeader({ program }: TrainingHeaderProps) {
 				<Badge
 					variant='solid'
 					backgroundColor='orange.500'
-          fontSize='sm'
-          px={3}
-          pt={1}
-          pb={2}
+          fontSize='md'
+          p={1}
 					borderRadius='md'
+          fontWeight='medium'
 				>
 					{program.workout_type}
 				</Badge>
