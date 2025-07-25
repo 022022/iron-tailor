@@ -23,15 +23,15 @@ export function ExerciseCard({ exercise, index }: ExerciseCardProps) {
 			<Badge fontSize='sm' pb={1} w='fit-content'>
 				{exercise.muscles}
 			</Badge>
-			<Text color='purple.50' fontSize='md'>
+			<Text color='brand.purple.50' fontSize='md'>
 				{exercise.description}
 			</Text>
 
 			<HStack gap={4} mb={1}>
-				<Text color='purple.500' fontSize='md'>
+				<Text color='brand.purple.500' fontSize='md'>
 					Подходы: {exercise.sets}
 				</Text>
-				<Text color='purple.500' fontSize='md'>
+				<Text color='brand.purple.500' fontSize='md'>
 					Повторы: {exercise.reps}
 				</Text>
 			</HStack>

@@ -11,10 +11,10 @@ export function WorkoutTypeCard({ label, disabled, onClick }: WorkoutTypeCardPro
   return (
     <Box
       cursor={disabled ? "not-allowed" : "pointer"}
-      bg={disabled ? "gray.300" : "white"}
+      bg={disabled ? "brand.gray.300" : "brand.white"}
       borderWidth={2}
       onClick={onClick}
-      _hover={disabled ? {} : {backgroundColor: "orange.500", color: "white"}}
+      _hover={disabled ? {} : {backgroundColor: "brand.orange.500", color: "brand.white"}}
       borderColor={disabled ? "gray.300" : "orange.500"}
       rounded="md"
       p={4}

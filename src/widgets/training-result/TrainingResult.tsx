@@ -9,7 +9,7 @@ interface TrainingResultProps {
 
 export function TrainingResult({ program }: TrainingResultProps) {
   return (
-    <Box   w="full" maxW="lg" color="purple.50" >
+    <Box   w="full" maxW="lg" color="brand.purple.50" >
       <VStack align="stretch" gap={6}>
         <TrainingHeader program={program} />
         <ExerciseList program={program} />

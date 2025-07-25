@@ -13,7 +13,7 @@ export function TrainingHeader({ program }: TrainingHeaderProps) {
 					<Badge
 						key={eq}
 						variant='solid'
-						backgroundColor='purple.500'
+						backgroundColor='brand.purple.500'
 						fontSize='sm'
             px={3}
             pt={1}

@@ -10,11 +10,11 @@ export function EquipmentCard({ equipment, isSelected, onClick }: EquipmentCardP
   return (
     <Box
       borderWidth={2}
-      borderColor={isSelected ? "purple.500" : "purple.100"}
+      borderColor={isSelected ? "brand.purple.500" : "brand.purple.100"}
       cursor="pointer"
       onClick={onClick}
-      bg={isSelected ? "purple.500" : "white"}
-      _hover={isSelected ? {  backgroundColor: "purple.400" } : { backgroundColor: "purple.100" }}
+      bg={isSelected ? "brand.purple.500" : "brand.white"}
+      _hover={isSelected ? {  backgroundColor: "brand.purple.400" } : { backgroundColor: "brand.purple.100" }}
       rounded="md"
       p={4}
       display='grid'
@@ -22,7 +22,7 @@ export function EquipmentCard({ equipment, isSelected, onClick }: EquipmentCardP
       textAlign='center'
       fontSize="md"
       transition="all 0.2s"
-      color={isSelected ? "white" : "purple.950"}
+      color={isSelected ? "brand.white" : "brand.purple.950"}
       lineHeight='1.2'
     >
       {equipment}

@@ -14,7 +14,7 @@ export default function ResultPage({ searchParams }: { searchParams: SearchParam
   }
 
   return (
-    <VStack as="main" minH="100vh" justify="center" align="center" p={4} bg="purple.950" gap={6}>
+    <VStack as="main" minH="100vh" justify="center" align="center" p={4} bg="brand.purple.950" gap={6}>
       <TrainingNavHeader program={program} />
       <TrainingResult program={program} />
     </VStack>

@@ -22,10 +22,10 @@ export function TrainingSelector() {
 
 			<VStack align='center' gap={2}>
         <Image src='/logo.svg' alt='' width={24} height={24} />
-				<Heading as='h1' size='xl' color='purple.50' fontWeight='normal'>
+				<Heading as='h1' size='xl' color='brand.purple.50' fontWeight='normal'>
 					Собери тренировку
 				</Heading>
-				<Text color='purple.50' fontSize='sm'>
+				<Text color='brand.purple.50' fontSize='sm'>
 					Выбери оборудование и цель
 				</Text>
 			</VStack>

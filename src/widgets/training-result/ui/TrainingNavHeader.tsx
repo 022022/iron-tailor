@@ -19,7 +19,7 @@ export function TrainingNavHeader({ program }: TrainingHeaderProps) {
 				as='h2'
 				size='md'
 				textAlign='center'
-				color='purple.50'
+				color='brand.purple.50'
 			>
 				Тренировка
 			</Heading>
