@@ -5,7 +5,8 @@ import { useAvailableWorkoutTypes } from './hooks/useAvailableWorkoutTypes';
 import { useTrainingSelection } from './hooks/useTrainingSelection';
 import { EquipmentSelector } from './ui/EquipmentSelector';
 import { WorkoutTypeSelector } from './ui/WorkoutTypeSelector';
-import Image from 'next/image';
+import LogoIcon from '@/shared/lib/icons/LogoIcon';
+import PlusIcon from '@/shared/lib/icons/PlusIcon';
 
 export function TrainingSelector() {
 	const equipmentOptions = getEquipmentOptions();
@@ -20,7 +21,7 @@ export function TrainingSelector() {
 	return (
 		<VStack align='center' gap={8} width="100%" maxW="md">
 			<VStack align='center' gap={2}>
-        <Image src='/logo.svg' alt='' width={24} height={24} />
+				<LogoIcon width={24} height={24} />
 				<Heading as='h1' size='xl' color='brand.purple.50' fontWeight='normal'>
 					Собери тренировку
 				</Heading>
@@ -36,7 +37,7 @@ export function TrainingSelector() {
 			/>
 
 			<Icon boxSize={6}>
-				<Image src='/plus-icon.svg' alt='' width={24} height={24} />
+				<PlusIcon width={24} height={24} />
 			</Icon>
 
 			<WorkoutTypeSelector

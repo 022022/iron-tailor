@@ -8,7 +8,7 @@ import {
 	getNextProgramId,
 } from '@/shared/lib/training-utils';
 import { useMemo } from 'react';
-import Image from 'next/image';
+import ShowAnotherIcon from '@/shared/lib/icons/ShowAnotherIcon';
 
 interface ShowAnotherButtonProps {
 	equipment: string[];
@@ -54,7 +54,7 @@ export function ShowAnotherButton({
 			borderRadius='md'
 			_hover={{ border: '1px solid', borderColor: 'orange.500' }}
 		>
-			<Image src='/show-another-icon.svg' alt='' width={24} height={24} />
+			<ShowAnotherIcon width={24} height={24} />
 		</IconButton>
 	);
 }

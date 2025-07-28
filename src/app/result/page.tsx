@@ -5,8 +5,9 @@ import { parseSearchParams, SearchParams } from "@/shared/lib/parse-search-param
 import { getResultProgram } from "@/shared/lib/training-utils";
 import { TrainingNavHeader } from '@/widgets/training-result/ui/TrainingNavHeader';
 
-export default function ResultPage({ searchParams }: { searchParams: SearchParams }) {
-  const { equipment, workoutType, currentId, programId } = parseSearchParams(searchParams);
+export default async function ResultPage({ searchParams }: { searchParams: SearchParams }) {
+  const resolvedParams = await searchParams;
+  const { equipment, workoutType, currentId, programId } = parseSearchParams(resolvedParams);
   const program = getResultProgram(equipment, workoutType, currentId, programId);
 
   if (!program) {
