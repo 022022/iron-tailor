@@ -1,5 +1,6 @@
-import { Box, Text, HStack, Badge, Heading, VStack } from '@chakra-ui/react';
+import { Text, HStack, Heading, VStack } from '@chakra-ui/react';
 import type { Exercise } from '@/shared/api/trainingPrograms';
+import { Badge } from '@/shared/ui/Badge';
 
 interface ExerciseCardProps {
 	exercise: Exercise;
@@ -18,7 +19,7 @@ export function ExerciseCard({ exercise, index }: ExerciseCardProps) {
 				{index + 1}. {exercise.name}
 			</Heading>
 
-			<Badge fontSize='sm' w='fit-content' >
+			<Badge variant="muscles">
 				{exercise.muscles}
 			</Badge>
 			<Text color='brand.purple.50' fontSize='md'>

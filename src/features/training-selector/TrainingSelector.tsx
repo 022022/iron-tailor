@@ -21,7 +21,7 @@ export function TrainingSelector() {
 	return (
 		<VStack align='center' gap={8} width="100%" maxW="md">
 			<VStack align='center' gap={2}>
-				<LogoIcon width={24} height={24} />
+				<LogoIcon width={32} height={32} />
 				<Heading as='h1' size='xl' color='brand.purple.50' fontWeight='normal'>
 					Собери тренировку
 				</Heading>

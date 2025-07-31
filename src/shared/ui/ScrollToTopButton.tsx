@@ -2,28 +2,27 @@
 
 import React from 'react';
 import UpIcon from '@/shared/lib/icons/UpIcon';
+import { Box } from '@chakra-ui/react';
 
 export const ScrollToTopButton: React.FC = () => {
-  const handleClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+	const handleClick = () => {
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	};
 
-  return (
-    <button
-      type="button"
-      aria-label="Наверх"
-      onClick={handleClick}
-      style={{
-        background: 'none',
-        border: 'none',
-        cursor: 'pointer',
-        padding: 0,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      <UpIcon width={32} height={32} />
-    </button>
-  );
+	return (
+		<Box
+			aria-label='Наверх'
+			w='48px'
+			h='48px'
+			display='flex'
+			alignItems='center'
+			justifyContent='center'
+			borderRadius='md'
+			_hover={{ border: '1px solid', borderColor: 'orange.500' }}
+			cursor='pointer'
+			onClick={handleClick}
+		>
+			<UpIcon width={32} height={32} />
+		</Box>
+	);
 };

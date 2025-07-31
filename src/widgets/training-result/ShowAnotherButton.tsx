@@ -1,5 +1,6 @@
 'use client';
-import { Button, IconButton } from '@chakra-ui/react';
+
+import { Box } from '@chakra-ui/react';
 import { useRouter } from 'next/navigation';
 import { useAtom } from 'jotai';
 import { viewedProgramIdsAtom } from '@/features/training-selector/model/atoms';
@@ -29,7 +30,7 @@ export function ShowAnotherButton({
 		[equipment, workoutType]
 	);
 
-	const handleAnother = () => {
+	const handleClick = () => {
 		const newViewed = viewedIds.includes(currentId)
 			? viewedIds
 			: [...viewedIds, currentId];
@@ -45,16 +46,19 @@ export function ShowAnotherButton({
 	};
 
 	return (
-		<IconButton
-			onClick={handleAnother}
-			h='48px'
+		<Box
+			aria-label='Наверх'
 			w='48px'
-			p={0}
-			bg='transparent'
+			h='48px'
+			display='flex'
+			alignItems='center'
+			justifyContent='center'
 			borderRadius='md'
 			_hover={{ border: '1px solid', borderColor: 'orange.500' }}
+			cursor='pointer'
+			onClick={handleClick}
 		>
-			<ShowAnotherIcon width={24} height={24} />
-		</IconButton>
+			<ShowAnotherIcon width={32} height={32} />
+		</Box>
 	);
 }
