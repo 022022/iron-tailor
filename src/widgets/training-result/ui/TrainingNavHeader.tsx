@@ -13,7 +13,7 @@ export function TrainingNavHeader({ program }: TrainingHeaderProps) {
 	const matchingPrograms = getMatchingPrograms(equipment, workout_type);
 	const showAnother = matchingPrograms.length > 1 && !!program;
 	return (
-		<Grid templateColumns='48px auto 48px' gap='6' w='100%' alignItems='center'>
+		<Grid templateColumns='48px auto 48px' gap='6' w='100%' alignItems='center' maxW='lg'>
 			<HomeButton />
 			<Heading
 				as='h2'

@@ -1,7 +1,6 @@
 import { VStack, Separator } from '@chakra-ui/react';
 import { ExerciseCard } from './ExerciseCard';
 import type { TrainingProgram } from '@/shared/api/trainingPrograms';
-import UpIcon from '@/shared/lib/icons/UpIcon';
 
 interface ExerciseListProps {
 	program: TrainingProgram;
