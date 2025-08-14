@@ -36,7 +36,7 @@ export function TrainingSelector() {
 				onEquipmentSelect={handleEquipmentSelect}
 			/>
 
-			<Icon boxSize={6}>
+			<Icon boxSize={6} color='brand.orange.500'>
 				<PlusIcon width={24} height={24} />
 			</Icon>
 

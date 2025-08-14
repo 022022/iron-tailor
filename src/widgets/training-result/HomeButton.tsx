@@ -7,16 +7,16 @@ export function HomeButton() {
     <Link href="/" passHref>
       <Box
         aria-label="На главную"
-        w="48px"
-        h="48px"
+        w="32px"
+        h="32px"
         display="flex"
         alignItems="center"
         justifyContent="center"
         borderRadius="md"
-        _hover={{ border: "1px solid", borderColor: "orange.500" }}
+        _hover={{ boxShadow: "0px 0px 12px 0px rgba(255,255,255,0.9)" }}
         cursor="pointer"
       >
-        <Image src="/logo.svg" alt="На главную" width={32} height={32} />
+        <Image src="/logo.svg" alt="На главную" width={32} height={32}  />
       </Box>
     </Link>
   );

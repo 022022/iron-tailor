@@ -48,14 +48,15 @@ export function ShowAnotherButton({
 	return (
 		<Box
 			aria-label='Наверх'
-			w='48px'
-			h='48px'
+			w='32px'
+			h='32px'
 			display='flex'
 			alignItems='center'
 			justifyContent='center'
-			borderRadius='md'
-			_hover={{ border: '1px solid', borderColor: 'orange.500' }}
+			borderRadius='50%'
+			_hover={{ boxShadow: '0px 0px 12px 0px rgba(255,255,255,0.9)' }}
 			cursor='pointer'
+			color='brand.purple.500'
 			onClick={handleClick}
 		>
 			<ShowAnotherIcon width={32} height={32} />
