@@ -33,7 +33,7 @@ export function useTrainingSelection() {
 		}
 		const url = `/result?equipment=${encodeURIComponent(
 			equipment.join(',')
-		)}&workoutType=${encodeURIComponent(value)}&random=1`;
+		)}&workoutType=${encodeURIComponent(value)}`;
 		router.push(url);
 	}, [equipment, router]);
 

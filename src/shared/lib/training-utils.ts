@@ -21,27 +21,6 @@ export function getWorkoutTypeOptions(): string[] {
   return Array.from(set);
 }
 
-export function getRandomProgram(programs: TrainingProgram[], currentId?: string): TrainingProgram | undefined {
-  if (programs.length === 0) return undefined;
-
-  let filtered = programs;
-  if (currentId && programs.length > 1) {
-    filtered = programs.filter(p => p.id !== currentId);
-  }
-
-  if (filtered.length === 0) {
-    const index = typeof window !== 'undefined'
-      ? Math.floor(Math.random() * programs.length)
-      : 0;
-    return programs[index];
-  }
-
-  const index = typeof window !== 'undefined'
-    ? Math.floor(Math.random() * filtered.length)
-    : 0;
-  return filtered[index];
-}
-
 export function getResultProgram(
   equipment: string[],
   workoutType: string,

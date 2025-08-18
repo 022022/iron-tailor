@@ -1,18 +1,22 @@
 import { TrainingResult } from "@/widgets/training-result/TrainingResult";
 import { notFound } from "next/navigation";
 import { VStack } from "@chakra-ui/react";
-import { parseSearchParams, SearchParams } from "@/shared/lib/parse-search-params";
 import { getResultProgram } from "@/shared/lib/training-utils";
 import { TrainingNavHeader } from '@/widgets/training-result/ui/TrainingNavHeader';
+import { ResultPageProps } from './types';
 
-interface PageProps {
-  searchParams: Promise<{ params: SearchParams }>;
-}
+export default async function ResultPage({
+  searchParams,
+}: ResultPageProps) {
+  const { equipment, workoutType, currentId, programId } = (await searchParams)
 
-export default async function ResultPage({ searchParams }: PageProps) {
-  const {params} = await searchParams;
-  const { equipment, workoutType, currentId, programId } = parseSearchParams(params);
-  const program = getResultProgram(equipment, workoutType, currentId, programId);
+  const equipmentArr = equipment?.split(',')
+
+  if (!equipmentArr || !workoutType) {
+    notFound();
+  }
+
+  const program = getResultProgram(equipmentArr, workoutType, currentId, programId);
 
   if (!program) {
     notFound();
