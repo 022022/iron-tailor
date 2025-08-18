@@ -1,12 +1,25 @@
-import { Box, VStack, Heading, Text } from "@chakra-ui/react";
+import { HomeButton } from '@/widgets/training-result/HomeButton';
+import { Box, Heading, Text } from '@chakra-ui/react';
 
 export default function NotFound() {
-  return (
-    <VStack as="main" minH="100vh" justify="center" align="center" p={4} bg="gray.50">
-      <Box bg="brand.white" p={8} rounded="md" shadow="md" w="full" maxW="md" textAlign="center">
-        <Heading as="h2" size="lg" mb={4}>Тренировка не найдена</Heading>
-        <Text>Проверьте выбранные параметры.</Text>
-      </Box>
-    </VStack>
-  );
+	return (
+		<Box
+			as='main'
+			minH='100vh'
+			w='full'
+			p={4}
+			bg='brand.purple.950'
+			display='grid'
+			placeContent='center'
+      justifyItems='center'
+			gap={2}
+
+		>
+			<Heading as='h2' size='lg' color='brand.purple.50' textAlign='center'>
+				Тренировка не найдена
+			</Heading>
+			<Text color='brand.purple.50' mb={2} textAlign='center'>Попробуйте другие параметры</Text>
+			<HomeButton/>
+		</Box>
+	);
 }

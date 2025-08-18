@@ -12,7 +12,7 @@ export default function Home() {
 			width='100%'
 			display='flex'
 			flexDirection='column'
-			p={8}
+			p={4}
 			bg='brand.purple.950'
 			alignItems='center'
 			justifyContent='center'
